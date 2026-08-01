@@ -2,12 +2,6 @@ import java.util.Scanner;
 
 public class EntranceHall {
 
-    /**
-     * Starts the room's main loop and handles menu options.
-     *
-     * @param scanner     The shared Scanner instance.
-     * @param curatorName The player's name.
-     */
     public void start(Scanner scanner, String curatorName) {
         boolean running = true;
 
@@ -16,15 +10,13 @@ public class EntranceHall {
 
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Clear newline buffer
+                scanner.nextLine();
 
                 System.out.println();
-                running = handleChoice(choice, curatorName);
+                running = handleChoice(choice, scanner, curatorName);
             } else {
-                System.out.println();
-                System.out.println("The voice echoes: \"Speak clearly. Enter a number: 1, 2, or 3.\"");
-                System.out.println();
-                scanner.nextLine(); // Clear invalid input buffer
+                System.out.println("\nThe voice echoes: \"Speak clearly. Enter a number: 1, 2, or 3.\"\n");
+                scanner.nextLine();
             }
         }
     }
@@ -39,12 +31,11 @@ public class EntranceHall {
         System.out.print("\n> ");
     }
 
-    private boolean handleChoice(int choice, String curatorName) {
+    private boolean handleChoice(int choice, Scanner scanner, String curatorName) {
         switch (choice) {
             case 1:
-                System.out.println("You push open the heavy double doors and step deeper into the dark corridors...");
-                System.out.println("[Room selection unlocked in future sprint]");
-                System.out.println();
+                Museum museum = new Museum();
+                museum.start(scanner, curatorName);
                 return true;
 
             case 2:
@@ -59,11 +50,10 @@ public class EntranceHall {
             case 3:
                 System.out.println("You turn the key and leave the museum to its silent anomalous residents.");
                 System.out.println("Goodbye, Curator " + curatorName + ".");
-                return false; // Signals the while loop to terminate
+                return false;
 
             default:
-                System.out.println("The voice echoes: \"Invalid choice, Curator. Choose 1, 2, or 3.\"");
-                System.out.println();
+                System.out.println("The voice echoes: \"Invalid choice, Curator. Choose 1, 2, or 3.\"\n");
                 return true;
         }
     }

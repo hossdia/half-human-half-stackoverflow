@@ -7,31 +7,18 @@ import java.util.Scanner;
  * ----------------------------
  * Sprint 0 - Project initialized
  * Sprint 1 - MM-001 Curator introduction
- * Sprint 2 - MM-002 Entrance Hall menu & modular refactoring
- * Sprint 2.1 - First OOP Refactor: Extracted EntranceHall object
- *
- * Sprint 2.1 Checklists
- * [x] Create standalone EntranceHall class
- * [x] Move Entrance Hall menu and loop out of Main
- * [x] Instantiate EntranceHall inside Main and call start()
+ * Sprint 2 - MM-002 Entrance Hall menu
+ * Sprint 2.1 - Extracted EntranceHall object
+ * Sprint 3 - Museum Wing Selection
  */
 public class Main {
 
-    /**
-     * Displays the game title header.
-     */
     public static void printTitle() {
         System.out.println("========================================");
         System.out.println("         MIDNIGHT MUSEUM");
         System.out.println("========================================");
     }
 
-    /**
-     * Prompts the player for their name and returns it.
-     *
-     * @param scanner The shared Scanner instance.
-     * @return The curator's name.
-     */
     public static String introduceCurator(Scanner scanner) {
         System.out.println();
         System.out.println("The entrance doors close behind you.");
@@ -42,14 +29,10 @@ public class Main {
         return scanner.nextLine();
     }
 
-    /**
-     * Prints the atmospheric welcome text for the curator.
-     *
-     * @param curatorName The player's name.
-     */
     public static void printGreeting(String curatorName) {
         System.out.println();
-        System.out.println("Welcome, " + curatorName + ".");
+        System.
+                out.println("Welcome, " + curatorName + ".");
         System.out.println();
         System.out.println("You have been appointed as the Night Curator.");
         System.out.println();
@@ -62,9 +45,6 @@ public class Main {
         System.out.println();
     }
 
-    /**
-     * Main entry point - acts purely as the game orchestrator/storyboard.
-     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -72,7 +52,6 @@ public class Main {
         String curatorName = introduceCurator(scanner);
         printGreeting(curatorName);
 
-        // Instantiating the room object
         EntranceHall entranceHall = new EntranceHall();
         entranceHall.start(scanner, curatorName);
 
