@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Museum {
 
-    public void start(Scanner scanner, String curatorName) {
+    public void start(Scanner scanner, Player player) {
         boolean inMuseum = true;
 
         while (inMuseum) {
@@ -13,7 +13,7 @@ public class Museum {
                 scanner.nextLine();
 
                 System.out.println();
-                inMuseum = handleWingSelection(choice, curatorName);
+                inMuseum = handleWingSelection(choice, player);
             } else {
                 System.out.println("\nThe voice echoes: \"Speak clearly. Enter a number: 1, 2, 3, or 4.\"\n");
                 scanner.nextLine();
@@ -36,29 +36,28 @@ public class Museum {
         System.out.print("\n> ");
     }
 
-    private boolean handleWingSelection(int choice, String curatorName) {
-        return switch (choice) {
-            case 1 -> {
+    private boolean handleWingSelection(int choice, Player player) {
+        switch (choice) {
+            case 1:
                 egyptianGallery();
-                yield true;
-            }
-            case 2 -> {
+                return true;
+
+            case 2:
                 paintings();
-                yield true;
-            }
-            case 3 -> {
+                return true;
+
+            case 3:
                 storage();
-                yield true;
-            }
-            case 4 -> {
-                System.out.println("You step back into the safety of the Entrance Hall, Curator " + curatorName + ".\n");
-                yield false;
-            }
-            default -> {
+                return true;
+
+            case 4:
+                System.out.println("You step back into the safety of the Entrance Hall, Curator " + player.getName() + ".\n");
+                return false;
+
+            default:
                 System.out.println("The voice echoes: \"Invalid wing selection, Curator. Choose 1, 2, 3, or 4.\"\n");
-                yield true;
-            }
-        };
+                return true;
+        }
     }
 
     private void egyptianGallery() {

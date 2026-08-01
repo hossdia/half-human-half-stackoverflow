@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class EntranceHall {
 
-    public void start(Scanner scanner, String curatorName) {
+    public void start(Scanner scanner, Player player) {
         boolean running = true;
 
         while (running) {
@@ -13,7 +13,7 @@ public class EntranceHall {
                 scanner.nextLine();
 
                 System.out.println();
-                running = handleChoice(choice, scanner, curatorName);
+                running = handleChoice(choice, scanner, player);
             } else {
                 System.out.println("\nThe voice echoes: \"Speak clearly. Enter a number: 1, 2, or 3.\"\n");
                 scanner.nextLine();
@@ -31,11 +31,11 @@ public class EntranceHall {
         System.out.print("\n> ");
     }
 
-    private boolean handleChoice(int choice, Scanner scanner, String curatorName) {
+    private boolean handleChoice(int choice, Scanner scanner, Player player) {
         switch (choice) {
             case 1:
                 Museum museum = new Museum();
-                museum.start(scanner, curatorName);
+                museum.start(scanner, player);
                 return true;
 
             case 2:
@@ -49,7 +49,7 @@ public class EntranceHall {
 
             case 3:
                 System.out.println("You turn the key and leave the museum to its silent anomalous residents.");
-                System.out.println("Goodbye, Curator " + curatorName + ".");
+                System.out.println("Goodbye, Curator " + player.getName() + ".");
                 return false;
 
             default:
