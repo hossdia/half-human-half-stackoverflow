@@ -1,3 +1,5 @@
+package locations;
+import game.Player;
 import java.util.Scanner;
 
 public class EntranceHall {
@@ -25,7 +27,7 @@ public class EntranceHall {
         System.out.println("----------------------------------------");
         System.out.println("            ENTRANCE HALL");
         System.out.println("----------------------------------------");
-        System.out.println("1. Enter the Museum");
+        System.out.println("1. Enter the locations");
         System.out.println("2. Read the Curator's Handbook");
         System.out.println("3. Exit");
         System.out.print("\n> ");

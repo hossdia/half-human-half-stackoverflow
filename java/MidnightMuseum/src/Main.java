@@ -1,18 +1,23 @@
+import game.Player;
+import locations.EntranceHall;
+
 import java.util.Scanner;
 
 /*
- * Midnight Museum
+ * Midnight locations.Museum
  *
  * Version History
  * ----------------------------
  * Sprint 0 - Project initialized
  * Sprint 1 - MM-001 Curator introduction
  * Sprint 2 - MM-002 Entrance Hall menu
- * Sprint 2.1 - Extracted EntranceHall object
- * Sprint 3 - MM-003 Museum Wing Selection
- * Sprint 4 - MM-004 Create the Player object
+ * Sprint 2.1 - Extracted locations.EntranceHall object
+ * Sprint 3 - MM-003 locations.Museum Wing Selection
+ * Sprint 4 - MM-004 Create the game.Player object
  */
 public class Main {
+
+    private static Player player;
 
     public static void printTitle() {
         System.out.println("========================================");
@@ -52,12 +57,11 @@ public class Main {
         String curatorName = introduceCurator(scanner);
         printGreeting(curatorName);
 
-        // Sprint 4: Wrap the name into our new Player object
+        // Sprint 4: Wrap the name into our new game.Player object
         Player player = new Player(curatorName);
 
         EntranceHall entranceHall = new EntranceHall();
         entranceHall.start(scanner, player);
-
         scanner.close();
     }
 }

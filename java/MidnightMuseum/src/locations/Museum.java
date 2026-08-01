@@ -1,3 +1,7 @@
+package locations;
+
+import game.Player;
+
 import java.util.Scanner;
 
 public class Museum {
