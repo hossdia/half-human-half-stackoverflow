@@ -17,8 +17,6 @@ import java.util.Scanner;
  */
 public class Main {
 
-    private static Player player;
-
     public static void printTitle() {
         System.out.println("========================================");
         System.out.println("         MIDNIGHT MUSEUM");
