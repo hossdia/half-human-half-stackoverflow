@@ -1,7 +1,6 @@
 package locations;
 
 import game.Player;
-
 import java.util.Scanner;
 
 public class Museum {
@@ -17,7 +16,7 @@ public class Museum {
                 scanner.nextLine();
 
                 System.out.println();
-                inMuseum = handleWingSelection(choice, player);
+                inMuseum = handleWingSelection(choice, scanner, player);
             } else {
                 System.out.println("\nThe voice echoes: \"Speak clearly. Enter a number: 1, 2, 3, or 4.\"\n");
                 scanner.nextLine();
@@ -29,8 +28,8 @@ public class Museum {
         System.out.println("========================================");
         System.out.println("               THE MUSEUM");
         System.out.println("========================================");
-        System.out.println("The corridors stretch endlessly.");
-        System.out.println("Ancient relics watch from the darkness.");
+        System.out.println("The corridors stretch endlessly into pitch blackness.");
+        System.out.println("Unseen eyes linger on your every step.");
         System.out.println();
         System.out.println("Choose a wing:");
         System.out.println("1. Egyptian Gallery");
@@ -40,10 +39,12 @@ public class Museum {
         System.out.print("\n> ");
     }
 
-    private boolean handleWingSelection(int choice, Player player) {
+    private boolean handleWingSelection(int choice, Scanner scanner, Player player) {
         switch (choice) {
             case 1:
-                egyptianGallery();
+                // Instantiates and delegates to the dedicated location class
+                EgyptianGallery gallery = new EgyptianGallery();
+                gallery.start(scanner, player);
                 return true;
 
             case 2:
@@ -55,20 +56,13 @@ public class Museum {
                 return true;
 
             case 4:
-                System.out.println("You step back into the safety of the Entrance Hall, Curator " + player.getName() + ".\n");
+                System.out.println("You retreat back into the relative safety of the Entrance Hall, Curator " + player.getName() + ".\n");
                 return false;
 
             default:
                 System.out.println("The voice echoes: \"Invalid wing selection, Curator. Choose 1, 2, 3, or 4.\"\n");
                 return true;
         }
-    }
-
-    private void egyptianGallery() {
-        System.out.println("--- EGYPTIAN GALLERY ---");
-        System.out.println("Rows of stone sarcophagi line the walls.");
-        System.out.println("One of them feels... slightly open.");
-        System.out.println("\n[Coming Soon]\n");
     }
 
     private void paintings() {

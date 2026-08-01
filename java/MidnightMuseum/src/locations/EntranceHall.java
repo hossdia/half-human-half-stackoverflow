@@ -1,4 +1,5 @@
 package locations;
+
 import game.Player;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class EntranceHall {
         System.out.println("----------------------------------------");
         System.out.println("            ENTRANCE HALL");
         System.out.println("----------------------------------------");
-        System.out.println("1. Enter the locations");
+        System.out.println("1. Enter the Museum");
         System.out.println("2. Read the Curator's Handbook");
         System.out.println("3. Exit");
         System.out.print("\n> ");
@@ -41,16 +42,17 @@ public class EntranceHall {
                 return true;
 
             case 2:
-                System.out.println("=== CURATOR'S HANDBOOK ===");
-                System.out.println("Rule 1: Do not stare at the paintings.");
-                System.out.println("Rule 2: If an artifact whispers, do not answer.");
-                System.out.println("Rule 3: Keep your flashlight charged.");
-                System.out.println("==========================");
+                System.out.println("=== CURATOR'S HANDBOOK: ANOMALY PROTOCOLS ===");
+                System.out.println("RULE 1: Never stare into a portrait's eyes for longer than three seconds.");
+                System.out.println("RULE 2: If a stone sarcophagus begins to hum... leave the wing immediately.");
+                System.out.println("RULE 3: Shadows do not belong to you here. Do not look behind you.");
+                System.out.println("RULE 4: If an artifact whispers your real name... DO NOT ANSWER.");
+                System.out.println("============================================");
                 System.out.println();
                 return true;
 
             case 3:
-                System.out.println("You turn the key and leave the museum to its silent anomalous residents.");
+                System.out.println("You turn the heavy brass key, sealing the museum and leaving its silent residents in the dark.");
                 System.out.println("Goodbye, Curator " + player.getName() + ".");
                 return false;
 
