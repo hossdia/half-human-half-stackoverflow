@@ -7,6 +7,7 @@ public class ArtifactStorage {
 
     private boolean readLogbook = false;
     private boolean knockedBack = false;
+    private int crateRevisits = 0;
 
     public void start(Scanner scanner, Player player) {
         boolean inStorage = true;
@@ -71,15 +72,17 @@ public class ArtifactStorage {
     private void inspectCrate(Scanner scanner) {
         System.out.println("A heavy iron-reinforced wooden crate sits on a low pallet.");
         System.out.println("Heavy padlocks bind three thick steel chains wrapped around it.");
+
+        if (knockedBack) {
+            crateRevisits++;
+            printPostKnockSilence();
+            return;
+        }
+
         System.out.println("A soft, deliberate tapping comes from inside the crate.");
         System.out.println("Three knocks.");
         System.out.println("Then silence.");
         System.out.println();
-
-        if (knockedBack) {
-            System.out.println("The crate is unsettlingly silent now. It feels like something inside is waiting for you to get closer.\n");
-            return;
-        }
 
         if (readLogbook) {
             System.out.println("1. Knock back three times");
@@ -101,6 +104,25 @@ public class ArtifactStorage {
                 System.out.println("You stay silent and back away.\n");
             }
         }
+    }
+
+    private void printPostKnockSilence() {
+        switch (crateRevisits) {
+            case 1 -> {
+                System.out.println("The crate is silent.");
+                System.out.println("No tapping comes from within.");
+            }
+            case 2 -> System.out.println("The silence feels deliberate.");
+            case 3 -> {
+                System.out.println("You find yourself listening for the knocks.");
+                System.out.println("None come.");
+            }
+            default -> {
+                System.out.println("The crate remains silent.");
+                System.out.println("You aren't sure whether that's comforting anymore.");
+            }
+        }
+        System.out.println();
     }
 
     private void knockBack() {
