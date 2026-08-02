@@ -81,7 +81,6 @@ public class ArtifactStorage {
             return;
         }
 
-        // If the player read the logbook, give them the dangerous option!
         if (readLogbook) {
             System.out.println("1. Knock back three times");
             System.out.println("2. Stay silent and step away");
@@ -93,11 +92,7 @@ public class ArtifactStorage {
                 System.out.println();
 
                 if (subChoice == 1) {
-                    knockedBack = true;
-                    System.out.println("You reach out and rap your knuckles against the thick wood three times.");
-                    System.out.println("A heavy silence falls over the entire storage room.");
-                    System.out.println("Then... a loud, deafening BANG hits the lid from inside!");
-                    System.out.println("The metal chains rattle violently. You stumble backward in terror.\n");
+                    knockBack();
                 } else {
                     System.out.println("Remembering the logbook warning, you hold your breath and back away quietly.\n");
                 }
@@ -106,6 +101,23 @@ public class ArtifactStorage {
                 System.out.println("You stay silent and back away.\n");
             }
         }
+    }
+
+    private void knockBack() {
+        knockedBack = true;
+        System.out.println("You reach out and rap your knuckles against the thick wood three times.");
+        System.out.println();
+        System.out.println("A heavy silence falls over the entire storage room.");
+        System.out.println();
+        System.out.println("Then...");
+        System.out.println();
+        System.out.println("A deafening BANG erupts from inside the crate.");
+        System.out.println();
+        System.out.println("The chains rattle violently.");
+        System.out.println();
+        System.out.println("Everything falls silent.");
+        System.out.println();
+        System.out.println("Far too silent.\n");
     }
 
     private void readContainmentLogbook() {
