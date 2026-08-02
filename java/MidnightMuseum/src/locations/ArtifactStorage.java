@@ -44,7 +44,9 @@ public class ArtifactStorage {
             case 1 -> {
                 System.out.println("A heavy iron-reinforced wooden crate sits on a low pallet.");
                 System.out.println("Heavy padlocks bind three thick steel chains wrapped around it.");
-                System.out.println("As you draw near, a soft, deliberate tapping sounds from WITHIN the wood.\n");
+                System.out.println("A soft, deliberate tapping comes from inside the crate.");
+                System.out.println("Three knocks.");
+                System.out.println("Then silence.\n");
                 return true;
             }
             case 2 -> {

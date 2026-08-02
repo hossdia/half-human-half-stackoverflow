@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class HallOfPaintings {
 
+    private int portraitInspections = 0;
+
     public void start(Scanner scanner, Player player) {
         boolean inHall = true;
 
@@ -42,9 +44,7 @@ public class HallOfPaintings {
     private boolean handleChoice(int choice, Player player) {
         switch (choice) {
             case 1 -> {
-                System.out.println("The life-sized oil painting depicts a 19th-century noblewoman.");
-                System.out.println("When you step to the left, her gaze moves with you.");
-                System.out.println("When you step to the right... her smile grows slightly wider.\n");
+                inspectPortrait();
                 return true;
             }
             case 2 -> {
@@ -68,5 +68,20 @@ public class HallOfPaintings {
                 return true;
             }
         }
+    }
+
+    private void inspectPortrait() {
+        portraitInspections++;
+
+        System.out.println("The life-sized oil painting depicts a 19th-century noblewoman.");
+
+        if (portraitInspections == 1) {
+            System.out.println("The portrait's gaze seems to follow you as you step across the room.");
+        } else if (portraitInspections == 2) {
+            System.out.println("You lean closer. You could swear her expression wasn't smiling before.");
+        } else {
+            System.out.println("She is definitely smiling now. Her painted teeth glisten faintly in your flashlight beam.");
+        }
+        System.out.println();
     }
 }
