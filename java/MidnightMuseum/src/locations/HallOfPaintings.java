@@ -73,14 +73,20 @@ public class HallOfPaintings {
     private void inspectPortrait() {
         portraitInspections++;
 
-        System.out.println("The life-sized oil painting depicts a 19th-century noblewoman.");
-
-        if (portraitInspections == 1) {
-            System.out.println("The portrait's gaze seems to follow you as you step across the room.");
-        } else if (portraitInspections == 2) {
-            System.out.println("You lean closer. You could swear her expression wasn't smiling before.");
-        } else {
-            System.out.println("She is definitely smiling now. Her painted teeth glisten faintly in your flashlight beam.");
+        switch (portraitInspections) {
+            case 1 -> System.out.println("The portrait's gaze seems to follow you as you step across the room.");
+            case 2 -> System.out.println("You lean closer. You could swear her expression wasn't smiling before.");
+            case 3 -> System.out.println("She is definitely smiling now. Her painted teeth glisten faintly in your flashlight beam.");
+            case 4 -> {
+                System.out.println("The canvas inside the frame is completely blank.");
+                System.out.println("Only wet oil paint drips slowly onto the floor...");
+            }
+            default -> {
+                System.out.println("You stare at the empty frame.");
+                System.out.println("The temperature plunges.");
+                System.out.println("A cold breath touches the back of your neck.");
+                System.out.println("Someone is standing behind you.");
+            }
         }
         System.out.println();
     }

@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class ArtifactStorage {
 
+    private boolean readLogbook = false;
+    private boolean knockedBack = false;
+
     public void start(Scanner scanner, Player player) {
         boolean inStorage = true;
 
@@ -20,7 +23,7 @@ public class ArtifactStorage {
                 scanner.nextLine();
 
                 System.out.println();
-                inStorage = handleChoice(choice, player);
+                inStorage = handleChoice(choice, scanner, player);
             } else {
                 System.out.println("\nA metallic hum reverberates: Choose 1, 2, 3, or 4.\n");
                 scanner.nextLine();
@@ -39,19 +42,14 @@ public class ArtifactStorage {
         System.out.print("\n> ");
     }
 
-    private boolean handleChoice(int choice, Player player) {
+    private boolean handleChoice(int choice, Scanner scanner, Player player) {
         switch (choice) {
             case 1 -> {
-                System.out.println("A heavy iron-reinforced wooden crate sits on a low pallet.");
-                System.out.println("Heavy padlocks bind three thick steel chains wrapped around it.");
-                System.out.println("A soft, deliberate tapping comes from inside the crate.");
-                System.out.println("Three knocks.");
-                System.out.println("Then silence.\n");
+                inspectCrate(scanner);
                 return true;
             }
             case 2 -> {
-                System.out.println("A leather-bound ledger rests on a metal desk, coated in dust.");
-                System.out.println("The last entry reads: 'Do not attempt inventory after midnight. The counts never match.'\n");
+                readContainmentLogbook();
                 return true;
             }
             case 3 -> {
@@ -68,5 +66,52 @@ public class ArtifactStorage {
                 return true;
             }
         }
+    }
+
+    private void inspectCrate(Scanner scanner) {
+        System.out.println("A heavy iron-reinforced wooden crate sits on a low pallet.");
+        System.out.println("Heavy padlocks bind three thick steel chains wrapped around it.");
+        System.out.println("A soft, deliberate tapping comes from inside the crate.");
+        System.out.println("Three knocks.");
+        System.out.println("Then silence.");
+        System.out.println();
+
+        if (knockedBack) {
+            System.out.println("The crate is unsettlingly silent now. It feels like something inside is waiting for you to get closer.\n");
+            return;
+        }
+
+        // If the player read the logbook, give them the dangerous option!
+        if (readLogbook) {
+            System.out.println("1. Knock back three times");
+            System.out.println("2. Stay silent and step away");
+            System.out.print("\n> ");
+
+            if (scanner.hasNextInt()) {
+                int subChoice = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println();
+
+                if (subChoice == 1) {
+                    knockedBack = true;
+                    System.out.println("You reach out and rap your knuckles against the thick wood three times.");
+                    System.out.println("A heavy silence falls over the entire storage room.");
+                    System.out.println("Then... a loud, deafening BANG hits the lid from inside!");
+                    System.out.println("The metal chains rattle violently. You stumble backward in terror.\n");
+                } else {
+                    System.out.println("Remembering the logbook warning, you hold your breath and back away quietly.\n");
+                }
+            } else {
+                scanner.nextLine();
+                System.out.println("You stay silent and back away.\n");
+            }
+        }
+    }
+
+    private void readContainmentLogbook() {
+        readLogbook = true;
+        System.out.println("A leather-bound ledger rests on a metal desk, coated in dust.");
+        System.out.println("The last entry reads:");
+        System.out.println("'CONTAINMENT PROTOCOL FOR CRATE #042: Never answer knocks. If you knock back, it knows you hear it.'\n");
     }
 }
