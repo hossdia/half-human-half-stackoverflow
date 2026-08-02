@@ -112,14 +112,18 @@ public class ArtifactStorage {
                 System.out.println("The crate is silent.");
                 System.out.println("No tapping comes from within.");
             }
-            case 2 -> System.out.println("The silence feels deliberate.");
+            case 2 -> {
+                System.out.println("The silence feels deliberate.");
+            }
             case 3 -> {
                 System.out.println("You find yourself listening for the knocks.");
                 System.out.println("None come.");
             }
             default -> {
                 System.out.println("The crate remains silent.");
-                System.out.println("You aren't sure whether that's comforting anymore.");
+                System.out.println();
+                System.out.println("You find yourself waiting");
+                System.out.println("for the fourth knock.");
             }
         }
         System.out.println();

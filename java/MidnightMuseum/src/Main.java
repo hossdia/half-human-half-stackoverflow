@@ -9,18 +9,22 @@ import java.util.Scanner;
  *
  * Version History
  * ----------------------------
- * Sprint 0 - Project initialized
- * Sprint 1 - MM-001 Curator introduction
- * Sprint 2 - MM-002 Entrance Hall menu
+ * Sprint 0   - Project initialized
+ * Sprint 1   - MM-001 Curator introduction
+ * Sprint 2   - MM-002 Entrance Hall menu
  * Sprint 2.1 - Extracted EntranceHall object
- * Sprint 3 - MM-003 Museum Wing Selection
- * Sprint 4 - MM-004 Create the Player object
- * Sprint 5 - MM-005 The First Real Gallery
+ * Sprint 3   - MM-003 Museum Wing Selection
+ * Sprint 4   - MM-004 Create the Player object
+ * Sprint 5   - MM-005 The First Real Gallery
  * Sprint 5.1 - Extract location classes
  * Sprint 5.2 - Refine narrative pacing
- * Sprint 6 - MM-006 Interactive Artifact & Persistent Choices
- * Sprint 7 - MM-007 Curator's Induction & First Item
+ * Sprint 6   - MM-006 Interactive Artifact & Persistent Choices
+ * Sprint 7   - MM-007 Curator's Induction & First Item
+ * Sprint 7.1 - Refined Crate #042 text pacing
+ * Sprint 7.2 - Dynamic post-knock revisit states
+ * Sprint 7.3 - Psychological escalation on 4th knock callback
  */
+
 public class Main {
 
     public static void printTitle() {
