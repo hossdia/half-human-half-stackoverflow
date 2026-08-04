@@ -1,18 +1,19 @@
 package locations;
 
 import game.Player;
+import utils.TextEffects;
+
 import java.util.Scanner;
 
 public class HallOfPaintings {
 
-    private int portraitInspections = 0;
+    private boolean lookedBehindCurtain = false;
 
     public void start(Scanner scanner, Player player) {
         boolean inHall = true;
 
-        System.out.println("An impossible silence fills the gallery.");
-        System.out.println("Dozens of oil portraits line the dark velvet walls.");
-        System.out.println("None of their painted eyes seem to be looking where they should...\n");
+        System.out.println("Heavy velvet drapes line the grand hall.");
+        System.out.println("Gold-framed oil paintings cover every inch of vertical wall space.\n");
 
         while (inHall) {
             printMenu();
@@ -22,9 +23,9 @@ public class HallOfPaintings {
                 scanner.nextLine();
 
                 System.out.println();
-                inHall = handleChoice(choice, player);
+                inHall = handleChoice(choice, scanner, player);
             } else {
-                System.out.println("\nA chill runs down your spine: Choose a valid option: 1, 2, 3, or 4.\n");
+                System.out.println("\nA floorboard creaks nearby: Choose 1, 2, 3, or 4.\n");
                 scanner.nextLine();
             }
         }
@@ -34,60 +35,77 @@ public class HallOfPaintings {
         System.out.println("----------------------------------------");
         System.out.println("          HALL OF PAINTINGS");
         System.out.println("----------------------------------------");
-        System.out.println("1. Inspect the central portrait");
-        System.out.println("2. Check the brass nameplates");
-        System.out.println("3. Peer into the dark alcove");
+        System.out.println("1. Examine 'Portrait of an Unknown Lady'");
+        System.out.println("2. Inspect the empty gilded frame");
+        System.out.println("3. Look behind the black velvet curtain");
         System.out.println("4. Return to Museum corridor");
         System.out.print("\n> ");
     }
 
-    private boolean handleChoice(int choice, Player player) {
+    private boolean handleChoice(int choice, Scanner scanner, Player player) {
         switch (choice) {
             case 1 -> {
-                inspectPortrait();
+                examinePortrait();
                 return true;
             }
             case 2 -> {
-                System.out.println("You shine your light on the tarnished brass plates below the frames.");
-                System.out.println("Every single plate has been violently scratched clean of names or dates.");
-                System.out.println("Only one word remains legible across the entire wall: 'REMEMBER'.\n");
+                inspectEmptyFrame();
                 return true;
             }
             case 3 -> {
-                System.out.println("Curator " + player.getName() + ", you raise your flashlight toward the unlit alcove.");
-                System.out.println("An empty golden frame hangs on the wall.");
-                System.out.println("Fresh canvas dust lies scattered on the floor beneath it... as if whatever was painted inside recently stepped out.\n");
+                lookBehindCurtain();
                 return true;
             }
             case 4 -> {
-                System.out.println("You lower your eyes and carefully step back into the central corridor.\n");
+                System.out.println("You leave the watchful painted eyes behind and step back into the corridor.\n");
                 return false;
             }
             default -> {
-                System.out.println("The shadows shift silently. Choose 1, 2, 3, or 4.\n");
+                System.out.println("The portraits seem to wait. Choose 1, 2, 3, or 4.\n");
                 return true;
             }
         }
     }
 
-    private void inspectPortrait() {
-        portraitInspections++;
+    private void examinePortrait() {
+        TextEffects.typeLine("An imposing oil portrait of an 18th-century noblewoman.", TextEffects.NORMAL);
+        TextEffects.pause(400);
 
-        switch (portraitInspections) {
-            case 1 -> System.out.println("The portrait's gaze seems to follow you as you step across the room.");
-            case 2 -> System.out.println("You lean closer. You could swear her expression wasn't smiling before.");
-            case 3 -> System.out.println("She is definitely smiling now. Her painted teeth glisten faintly in your flashlight beam.");
-            case 4 -> {
-                System.out.println("The canvas inside the frame is completely blank.");
-                System.out.println("Only wet oil paint drips slowly onto the floor...");
-            }
-            default -> {
-                System.out.println("You stare at the empty frame.");
-                System.out.println("The temperature plunges.");
-                System.out.println("A cold breath touches the back of your neck.");
-                System.out.println("Someone is standing behind you.");
-            }
+        if (lookedBehindCurtain) {
+            TextEffects.typeLine("She is definitely smiling now.", TextEffects.SLOW);
+            TextEffects.pause(600);
+            TextEffects.typeLine("Her painted teeth glisten faintly in your flashlight beam.", TextEffects.SLOW);
+        } else {
+            TextEffects.typeLine("Her eyes rest on a dark velvet drape at the far end of the gallery.", TextEffects.NORMAL);
         }
-        System.out.println();
+    }
+
+    private void inspectEmptyFrame() {
+        TextEffects.typeLine("You stare at the empty frame.", TextEffects.SLOW);
+        TextEffects.pause(600);
+        TextEffects.typeLine("The canvas inside the frame is completely blank.", TextEffects.SLOW);
+        TextEffects.pause(700);
+        TextEffects.typeLine("Only wet oil paint drips slowly onto the floor...", TextEffects.SLOW);
+
+        if (lookedBehindCurtain) {
+            TextEffects.pause(1000);
+            TextEffects.typeLine("The temperature plunges.", TextEffects.SLOW);
+            TextEffects.pause(1000);
+            TextEffects.typeLine("A cold breath touches the back of your neck.", TextEffects.SLOW);
+            TextEffects.pause(1200);
+            TextEffects.typeLine("Someone is standing behind you.", TextEffects.SLOW);
+        }
+    }
+
+    private void lookBehindCurtain() {
+        lookedBehindCurtain = true;
+
+        TextEffects.typeLine("You reach out and pull back the heavy black velvet curtain.", TextEffects.NORMAL);
+        TextEffects.pause(800);
+        TextEffects.typeLine("Behind it rests a mirror, covered in thick gray dust.", TextEffects.SLOW);
+        TextEffects.pause(600);
+        TextEffects.typeLine("In the reflection, you see the gallery behind you clearly...", TextEffects.SLOW);
+        TextEffects.pause(1000);
+        TextEffects.typeLine("...except none of the figures in the paintings are in their frames.", TextEffects.FAST);
     }
 }
