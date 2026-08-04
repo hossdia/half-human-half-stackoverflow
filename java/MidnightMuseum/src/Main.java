@@ -25,7 +25,10 @@ import java.util.Scanner;
  * Sprint 7.2 - Dynamic post-knock revisit states
  * Sprint 7.3 - Psychological escalation on 4th knock callback
  * Sprint 7.4 - Text effects & cinematic presentation layer
+ * Sprint 7.5 - Cleaned up TextEffects helpers (blankLine, typeLine)
+ * Sprint 7.6 - Atmospheric pacing & stateful escalation across all wings
  */
+
 public class Main {
 
     public static void printTitle() {
