@@ -1,6 +1,7 @@
 import game.Key;
 import game.Player;
 import locations.EntranceHall;
+import utils.TextEffects;
 
 import java.util.Scanner;
 
@@ -23,8 +24,8 @@ import java.util.Scanner;
  * Sprint 7.1 - Refined Crate #042 text pacing
  * Sprint 7.2 - Dynamic post-knock revisit states
  * Sprint 7.3 - Psychological escalation on 4th knock callback
+ * Sprint 7.4 - Text effects & cinematic presentation layer
  */
-
 public class Main {
 
     public static void printTitle() {
@@ -35,37 +36,47 @@ public class Main {
 
     public static String introduceCurator(Scanner scanner) {
         System.out.println();
-        System.out.println("The entrance doors close behind you.");
+        TextEffects.type("The entrance doors close behind you...", TextEffects.SLOW);
+        TextEffects.pause(600);
         System.out.println();
-        System.out.println("A voice echoes through the empty halls...");
+        TextEffects.type("A voice echoes through the empty halls...", TextEffects.NORMAL);
+        TextEffects.pause(500);
         System.out.println();
-        System.out.print("\"State your name, Curator.\"\n\n> ");
+        TextEffects.type("\"State your name, Curator.\"", TextEffects.SLOW);
+        System.out.print("\n> ");
         return scanner.nextLine();
     }
 
     public static void printGreeting(String curatorName) {
         System.out.println();
-        System.out.println("Welcome, " + curatorName + ".");
+        TextEffects.type("Welcome, " + curatorName + ".", TextEffects.SLOW);
+        TextEffects.pause(400);
         System.out.println();
-        System.out.println("You have been appointed as the Night Curator.");
+        TextEffects.type("You have been appointed as the Night Curator.", TextEffects.NORMAL);
+        TextEffects.type("The museum opens only after sunset.", TextEffects.NORMAL);
+        TextEffects.pause(500);
         System.out.println();
-        System.out.println("The museum opens only after sunset.");
+        TextEffects.type("Protect the artifacts.", TextEffects.SLOW);
+        TextEffects.type("Contain the anomalies.", TextEffects.SLOW);
+        TextEffects.pause(600);
         System.out.println();
-        System.out.println("Protect the artifacts.");
-        System.out.println("Contain the anomalies.");
-        System.out.println();
-        System.out.println("May you flourish in your mission to protect this museum.");
+        TextEffects.type("May you flourish in your mission to protect this museum.", TextEffects.NORMAL);
         System.out.println();
     }
 
     public static void performKeyCeremony(Player player) {
-        System.out.println("Out of nowhere, an old caretaker steps silently from the shadows.");
-        System.out.println("He studies you for a long moment, his eyes milky with age.");
+        TextEffects.pause(800);
+        TextEffects.type("Out of nowhere, an old caretaker steps silently from the shadows...", TextEffects.SLOW);
+        TextEffects.pause(600);
+        TextEffects.type("He studies you for a long moment, his eyes milky with age.", TextEffects.NORMAL);
         System.out.println();
-        System.out.println("Without a word, he places an ancient brass key into your hand.");
+        TextEffects.type("Without a word, he places an ancient brass key into your hand.", TextEffects.NORMAL);
+        TextEffects.pause(800);
         System.out.println();
-        System.out.println("\"This key does not open the museum.\"");
-        System.out.println("\"It tells the museum who you are.\"");
+        TextEffects.type("\"This key does not open the museum.\"", TextEffects.SLOW);
+        TextEffects.pause(500);
+        TextEffects.type("\"It tells the museum who you are.\"", TextEffects.SLOW);
+        TextEffects.pause(600);
         System.out.println();
 
         Key masterKey = new Key(
@@ -77,7 +88,8 @@ public class Main {
 
         System.out.println("You receive: [ " + masterKey.getName() + " ]");
         System.out.println();
-        System.out.println("The caretaker vanishes back into the darkness as silently as he arrived.");
+        TextEffects.type("The caretaker vanishes back into the darkness as silently as he arrived.", TextEffects.FAST);
+        TextEffects.pause(1000);
         System.out.println();
     }
 
@@ -90,7 +102,6 @@ public class Main {
 
         Player player = new Player(curatorName);
 
-        // Sprint 7 Induction
         performKeyCeremony(player);
 
         EntranceHall entranceHall = new EntranceHall();

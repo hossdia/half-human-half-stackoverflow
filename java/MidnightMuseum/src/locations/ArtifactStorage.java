@@ -1,6 +1,8 @@
 package locations;
 
 import game.Player;
+import utils.TextEffects;
+
 import java.util.Scanner;
 
 public class ArtifactStorage {
@@ -131,19 +133,23 @@ public class ArtifactStorage {
 
     private void knockBack() {
         knockedBack = true;
-        System.out.println("You reach out and rap your knuckles against the thick wood three times.");
+        TextEffects.type("You reach out and rap your knuckles against the thick wood three times.", TextEffects.NORMAL);
         System.out.println();
-        System.out.println("A heavy silence falls over the entire storage room.");
+        TextEffects.type("A heavy silence falls over the entire storage room...", TextEffects.SLOW);
+        TextEffects.pause(1200); // Suspense building
         System.out.println();
-        System.out.println("Then...");
+        TextEffects.type("Then...", TextEffects.SLOW);
+        TextEffects.pause(1000);
         System.out.println();
-        System.out.println("A deafening BANG erupts from inside the crate.");
+        TextEffects.type("A DEAFENING BANG ERUPTS FROM INSIDE THE CRATE!", TextEffects.FAST);
+        TextEffects.pause(400);
+        TextEffects.type("The chains rattle violently.", TextEffects.FAST);
+        TextEffects.pause(1200);
         System.out.println();
-        System.out.println("The chains rattle violently.");
+        TextEffects.type("Everything falls silent.", TextEffects.SLOW);
+        TextEffects.pause(800);
         System.out.println();
-        System.out.println("Everything falls silent.");
-        System.out.println();
-        System.out.println("Far too silent.\n");
+        TextEffects.type("Far too silent.\n", TextEffects.SLOW);
     }
 
     private void readContainmentLogbook() {
