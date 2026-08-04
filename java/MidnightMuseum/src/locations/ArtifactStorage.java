@@ -133,23 +133,24 @@ public class ArtifactStorage {
 
     private void knockBack() {
         knockedBack = true;
-        TextEffects.type("You reach out and rap your knuckles against the thick wood three times.", TextEffects.NORMAL);
-        System.out.println();
-        TextEffects.type("A heavy silence falls over the entire storage room...", TextEffects.SLOW);
-        TextEffects.pause(1200); // Suspense building
-        System.out.println();
-        TextEffects.type("Then...", TextEffects.SLOW);
-        TextEffects.pause(1000);
-        System.out.println();
-        TextEffects.type("A DEAFENING BANG ERUPTS FROM INSIDE THE CRATE!", TextEffects.FAST);
-        TextEffects.pause(400);
-        TextEffects.type("The chains rattle violently.", TextEffects.FAST);
+
+        TextEffects.typeLine("You reach out and rap your knuckles against the thick wood three times.", TextEffects.NORMAL);
+        TextEffects.typeLine("A heavy silence falls over the entire storage room...", TextEffects.SLOW);
+
         TextEffects.pause(1200);
-        System.out.println();
-        TextEffects.type("Everything falls silent.", TextEffects.SLOW);
+        TextEffects.typeLine("Then...", TextEffects.SLOW);
+
+        TextEffects.pause(1000);
+        TextEffects.typeLine("A DEAFENING BANG ERUPTS FROM INSIDE THE CRATE!", TextEffects.FAST);
+
+        TextEffects.pause(400);
+        TextEffects.typeLine("The chains rattle violently.", TextEffects.FAST);
+
+        TextEffects.pause(1200);
+        TextEffects.typeLine("Everything falls silent.", TextEffects.SLOW);
+
         TextEffects.pause(800);
-        System.out.println();
-        TextEffects.type("Far too silent.\n", TextEffects.SLOW);
+        TextEffects.typeLine("Far too silent.", TextEffects.SLOW);
     }
 
     private void readContainmentLogbook() {

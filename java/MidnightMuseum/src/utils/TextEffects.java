@@ -19,6 +19,19 @@ public class TextEffects {
         type(text, NORMAL);
     }
 
+    public static void typeLine(String text, int speedMs) {
+        type(text, speedMs);
+        blankLine();
+    }
+
+    public static void typeLine(String text) {
+        typeLine(text, NORMAL);
+    }
+
+    public static void blankLine() {
+        System.out.println();
+    }
+
     public static void pause(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
