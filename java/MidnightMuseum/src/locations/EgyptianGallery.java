@@ -1,6 +1,7 @@
 package locations;
 
 import game.Player;
+import utils.LocationUI;
 import utils.TextEffects;
 
 import java.util.Scanner;
@@ -13,10 +14,7 @@ public class EgyptianGallery {
     public void start(Scanner scanner, Player player) {
         boolean inGallery = true;
 
-        TextEffects.typeLine("The temperature drops instantly as you cross the threshold.", TextEffects.SLOW);
-        TextEffects.typeLine("A suffocating smell of ancient dust clings to the air...", TextEffects.SLOW);
-        System.out.println("Hieroglyphs cover the towering sandstone walls.");
-        System.out.println("Golden artifacts gleam dimly behind reinforced display glass.\n");
+        printIntroduction();
 
         while (inGallery) {
             printMenu();
@@ -34,15 +32,21 @@ public class EgyptianGallery {
         }
     }
 
+    private void printIntroduction() {
+        TextEffects.typeLine("The temperature drops instantly as you cross the threshold.", TextEffects.SLOW);
+        TextEffects.typeLine("A suffocating smell of ancient dust clings to the air...", TextEffects.SLOW);
+        System.out.println("Hieroglyphs cover the towering sandstone walls.");
+        System.out.println("Golden artifacts gleam dimly behind reinforced display glass.\n");
+    }
+
     private void printMenu() {
-        System.out.println("----------------------------------------");
-        System.out.println("          EGYPTIAN GALLERY");
-        System.out.println("----------------------------------------");
-        System.out.println("1. Inspect the Golden Sarcophagus");
-        System.out.println("2. Examine the Obsidian Scarab");
-        System.out.println("3. Read the hieroglyph wall plaque");
-        System.out.println("4. Return to Museum corridor");
-        System.out.print("\n> ");
+        LocationUI.printMenu(
+                "EGYPTIAN GALLERY",
+                "Inspect the Golden Sarcophagus",
+                "Examine the Obsidian Scarab",
+                "Read the hieroglyph wall plaque",
+                "Return to Museum corridor"
+        );
     }
 
     private boolean handleChoice(int choice, Scanner scanner, Player player) {
@@ -110,7 +114,7 @@ public class EgyptianGallery {
             TextEffects.typeLine("Almost like a slow heartbeat.", TextEffects.SLOW);
         } else {
             TextEffects.typeLine("Your satchel grows strangely warm.", TextEffects.SLOW);
-            TextEffects.typeLine("You never remember putting it back.", TextEffects.SLOW);
+            TextEffects.typeLine("The scarab is already with you.", TextEffects.SLOW);
         }
     }
 

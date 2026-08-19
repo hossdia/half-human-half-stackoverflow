@@ -28,6 +28,7 @@ import java.util.Scanner;
  * Sprint 7.5 - Cleaned up TextEffects helpers (blankLine, typeLine)
  * Sprint 7.6 - Atmospheric pacing & stateful escalation across all wings
  * Sprint 8   - MM-008 The Fourth Knock & Crate #043 Discovery
+ * Sprint 8.1 - Extracted LocationUI helper and normalized scene structure
  */
 
 public class Main {

@@ -1,6 +1,7 @@
 package locations;
 
 import game.Player;
+import utils.LocationUI;
 import utils.TextEffects;
 
 import java.util.Scanner;
@@ -12,8 +13,7 @@ public class HallOfPaintings {
     public void start(Scanner scanner, Player player) {
         boolean inHall = true;
 
-        System.out.println("Heavy velvet drapes line the grand hall.");
-        System.out.println("Gold-framed oil paintings cover every inch of vertical wall space.\n");
+        printIntroduction();
 
         while (inHall) {
             printMenu();
@@ -31,15 +31,19 @@ public class HallOfPaintings {
         }
     }
 
+    private void printIntroduction() {
+        System.out.println("Heavy velvet drapes line the grand hall.");
+        System.out.println("Gold-framed oil paintings cover every inch of vertical wall space.\n");
+    }
+
     private void printMenu() {
-        System.out.println("----------------------------------------");
-        System.out.println("          HALL OF PAINTINGS");
-        System.out.println("----------------------------------------");
-        System.out.println("1. Examine 'Portrait of an Unknown Lady'");
-        System.out.println("2. Inspect the empty gilded frame");
-        System.out.println("3. Look behind the black velvet curtain");
-        System.out.println("4. Return to Museum corridor");
-        System.out.print("\n> ");
+        LocationUI.printMenu(
+                "HALL OF PAINTINGS",
+                "Examine 'Portrait of an Unknown Lady'",
+                "Inspect the empty gilded frame",
+                "Look behind the black velvet curtain",
+                "Return to Museum corridor"
+        );
     }
 
     private boolean handleChoice(int choice, Scanner scanner, Player player) {

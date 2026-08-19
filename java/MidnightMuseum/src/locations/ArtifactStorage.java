@@ -1,6 +1,7 @@
 package locations;
 
 import game.Player;
+import utils.LocationUI;
 import utils.TextEffects;
 
 import java.util.Scanner;
@@ -15,8 +16,7 @@ public class ArtifactStorage {
     public void start(Scanner scanner, Player player) {
         boolean inStorage = true;
 
-        System.out.println("Dust motes float through beams of fluorescent light.");
-        System.out.println("Rows of tall metal shelving stretch into shadows.\n");
+        printIntroduction();
 
         while (inStorage) {
             printMenu();
@@ -34,15 +34,19 @@ public class ArtifactStorage {
         }
     }
 
+    private void printIntroduction() {
+        System.out.println("Dust motes float through beams of fluorescent light.");
+        System.out.println("Rows of tall metal shelving stretch into shadows.\n");
+    }
+
     private void printMenu() {
-        System.out.println("----------------------------------------");
-        System.out.println("          ARTIFACT STORAGE");
-        System.out.println("----------------------------------------");
-        System.out.println("1. Inspect Crate #042");
-        System.out.println("2. Read shipping logbook");
-        System.out.println("3. Listen to the dark shelf row");
-        System.out.println("4. Return to Museum corridor");
-        System.out.print("\n> ");
+        LocationUI.printMenu(
+                "ARTIFACT STORAGE",
+                "Inspect Crate #042",
+                "Read shipping logbook",
+                "Listen to the dark shelf row",
+                "Return to Museum corridor"
+        );
     }
 
     private boolean handleChoice(int choice, Scanner scanner, Player player) {
