@@ -116,6 +116,7 @@ public class ArtifactStorage {
             crateRevisits++;
             handleCrateRevisit();
         }
+        System.out.println();
     }
 
     private void knockBack() {
@@ -174,6 +175,7 @@ public class ArtifactStorage {
         TextEffects.pause(400);
         TextEffects.typeLine("'Item #042 - Recovered from North Sea excavation site.'", TextEffects.NORMAL);
         TextEffects.typeLine("'DO NOT ATTEMPT TO OPEN. DO NOT RESPOND TO AUDITORY STIMULI.'", TextEffects.SLOW);
+        System.out.println();
     }
 
     private void listenToRowSeven(Player player) {
@@ -268,5 +270,6 @@ public class ArtifactStorage {
                 }
             }
         }
+        System.out.println();
     }
 }

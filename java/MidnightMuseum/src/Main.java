@@ -29,6 +29,7 @@ import java.util.Scanner;
  * Sprint 7.6 - Atmospheric pacing & stateful escalation across all wings
  * Sprint 8   - MM-008 The Fourth Knock & Crate #043 Discovery
  * Sprint 8.1 - Extracted LocationUI helper and normalized scene structure
+ * Sprint 8.2 - MM-008.2 Persistent choices & escalating consequences across all wings
  */
 
 public class Main {

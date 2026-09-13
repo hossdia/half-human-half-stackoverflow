@@ -56,7 +56,7 @@ public class EgyptianGallery {
                 return true;
             }
             case 2 -> {
-                examineScarab();
+                examineScarab(scanner, player);
                 return true;
             }
             case 3 -> {
@@ -87,35 +87,64 @@ public class EgyptianGallery {
         switch (sarcophagusRevisits) {
             case 1 -> {
                 TextEffects.pause(500);
-                TextEffects.typeLine("The painted eyes of the mask seem slightly turned toward you now...", TextEffects.SLOW);
+                TextEffects.typeLine("The painted eyes of the mask are no longer facing where they were before.", TextEffects.SLOW);
             }
             case 2 -> {
                 TextEffects.pause(500);
-                TextEffects.typeLine("The gilded face seems to tilt downward, as if looking into your satchel.", TextEffects.SLOW);
+                TextEffects.typeLine("The gilded face appears directed straight toward your satchel.", TextEffects.SLOW);
+            }
+            case 3 -> {
+                TextEffects.pause(500);
+                TextEffects.typeLine("The carved lips of the gold mask twist upward into a rigid, hollow smile.", TextEffects.SLOW);
+                TextEffects.pause(800);
+                TextEffects.typeLine("You are certain it wasn't smiling before.", TextEffects.SLOW);
             }
             default -> {
                 TextEffects.pause(500);
-                TextEffects.typeLine("The stone lid appears slightly more open than before.", TextEffects.SLOW);
+                TextEffects.typeLine("The sarcophagus stands silent in the dim light, smiling into the dark.", TextEffects.SLOW);
                 TextEffects.pause(700);
-                TextEffects.typeLine("A narrow strip of pitch-black shadow gapes along the seam.", TextEffects.SLOW);
+                TextEffects.typeLine("The stone lid appears slightly more open than before.", TextEffects.SLOW);
             }
         }
+        System.out.println();
     }
 
-    private void examineScarab() {
+    private void examineScarab(Scanner scanner, Player player) {
         if (!scarabTaken) {
-            scarabTaken = true;
-            TextEffects.typeLine("You wrap the carved scarab in cloth and place it inside your satchel.", TextEffects.NORMAL);
-            TextEffects.pause(500);
-            TextEffects.typeLine("It feels...", TextEffects.SLOW);
-            TextEffects.pause(700);
-            TextEffects.typeLine("Warm.", TextEffects.SLOW);
-            TextEffects.pause(500);
-            TextEffects.typeLine("Almost like a slow heartbeat.", TextEffects.SLOW);
+            TextEffects.typeLine("An obsidian scarab rests inside an unsealed glass case.", TextEffects.NORMAL);
+            TextEffects.typeLine("Its surface is impossibly smooth, carved from pitch-black stone.", TextEffects.NORMAL);
+            System.out.println("\nDo you take the Obsidian Scarab?");
+            System.out.println("1. Take the scarab and place it in your satchel");
+            System.out.println("2. Leave it undisturbed");
+            System.out.print("\n> ");
+
+            if (scanner.hasNextInt()) {
+                int option = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println();
+
+                if (option == 1) {
+                    scarabTaken = true;
+                    player.addItem("Obsidian Scarab");
+                    TextEffects.typeLine("You wrap the carved scarab in cloth and place it inside your satchel.", TextEffects.NORMAL);
+                    TextEffects.pause(500);
+                    TextEffects.typeLine("It feels...", TextEffects.SLOW);
+                    TextEffects.pause(700);
+                    TextEffects.typeLine("Warm.", TextEffects.SLOW);
+                    TextEffects.pause(500);
+                    TextEffects.typeLine("Almost like a slow, faint heartbeat.", TextEffects.SLOW);
+                } else {
+                    TextEffects.typeLine("You decide against taking the artifact and step back.", TextEffects.NORMAL);
+                }
+            } else {
+                scanner.nextLine();
+                TextEffects.typeLine("You hesitate and pull your hand back.", TextEffects.NORMAL);
+            }
         } else {
-            TextEffects.typeLine("Your satchel grows strangely warm.", TextEffects.SLOW);
-            TextEffects.typeLine("The scarab is already with you.", TextEffects.SLOW);
+            TextEffects.typeLine("Your satchel grows strangely warm against your hip.", TextEffects.SLOW);
+            TextEffects.typeLine("The Obsidian Scarab rests safely inside.", TextEffects.SLOW);
         }
+        System.out.println();
     }
 
     private void readHieroglyphs() {
@@ -124,5 +153,6 @@ public class EgyptianGallery {
         TextEffects.typeLine("'Those who watch the dead must never look away...'", TextEffects.NORMAL);
         TextEffects.pause(700);
         TextEffects.typeLine("'...when the dead watch back.'", TextEffects.SLOW);
+        System.out.println();
     }
 }
