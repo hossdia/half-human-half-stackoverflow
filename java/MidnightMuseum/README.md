@@ -1,7 +1,7 @@
 # 🕯️ Midnight Museum
 
 > The museum opens only after sunset.
-> Protect the artifacts.
+> Protect the artefacts.
 > Contain the anomalies.
 > And whatever you do... **do not look behind you.**
 
@@ -11,14 +11,14 @@
 
 You play as the newly appointed **Night Curator**, exploring a museum where the exhibits aren't always as lifeless as they appear.
 
-Explore different museum wings, investigate strange artifacts, make choices that persist throughout your visit, and uncover the museum's secrets.
+Explore different museum wings, investigate strange artefacts, make choices that persist throughout your visit, and uncover the museum's secrets.
 
 ## Features
 
 * Multiple explorable museum locations
 * Text-based atmospheric storytelling
 * Persistent choices and stateful interactions
-* Interactive artifacts
+* Interactive artefacts
 * Escalating supernatural events
 * Cinematic text effects
 * Environmental lore and hidden clues
@@ -28,7 +28,7 @@ Explore different museum wings, investigate strange artifacts, make choices that
 
 ### Egyptian Gallery
 
-Ancient artifacts, a golden sarcophagus, and an obsidian scarab.
+Ancient artefacts, a golden sarcophagus, and an obsidian scarab.
 
 ### Hall of Paintings
 
@@ -36,7 +36,7 @@ A collection of old portraits.
 
 Some of them may be watching.
 
-### Artifact Storage
+### Artefact Storage
 
 Rows of forgotten objects, sealed crates, and records that perhaps should have stayed unread.
 
@@ -61,8 +61,8 @@ Open the project in your IDE and run `Main.java`.
 
 ```text
 src/
-├── game/
-│   ├── Main.java
+├── main.java
+├── game/ 
 │   ├── Player.java
 │   └── ...
 │
@@ -85,13 +85,13 @@ src/
 🚧 **In Development**
 
 More rooms.
-More artifacts.
+More artefacts.
 More anomalies.
 
 ---
 
 > **Curator's Handbook — Rule 4**
 >
-> If an artifact whispers your real name...
+> If an artefact whispers your real name...
 >
 > **DO NOT ANSWER.**
