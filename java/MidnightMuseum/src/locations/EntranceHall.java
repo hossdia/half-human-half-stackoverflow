@@ -1,6 +1,8 @@
 package locations;
 
 import game.Player;
+import utils.CuratorsHandbook;
+
 import java.util.Scanner;
 
 public class EntranceHall {
@@ -52,14 +54,7 @@ public class EntranceHall {
                 return true;
             }
             case 2 -> {
-                System.out.println("=== CURATOR'S HANDBOOK: ANOMALY PROTOCOLS ===");
-                System.out.println("RULE 1: Never stare into a portrait's eyes for longer than three seconds.");
-                System.out.println("RULE 2: If a stone sarcophagus begins to hum... leave the wing immediately.");
-                System.out.println("RULE 3: Shadows do not belong to you here. Do not look behind you.");
-                System.out.println("RULE 4: If an artifact whispers your real name... DO NOT ANSWER.");
-                System.out.println("RULE 5: Never lose the Curator's Key. Some doors only recognize its owner.");
-                System.out.println("============================================");
-                System.out.println();
+                CuratorsHandbook.displayProtocols();
                 return true;
             }
             case 3 -> {
