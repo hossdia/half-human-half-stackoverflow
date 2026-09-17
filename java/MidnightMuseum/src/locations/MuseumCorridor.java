@@ -8,19 +8,21 @@ import java.util.Scanner;
 
 public class MuseumCorridor {
 
-    public static boolean enter(
-            Scanner scanner,
-            Player player,
-            boolean scarabTaken,
-            boolean crateAnswered,
-            boolean portraitObserved
-    ) {
+    private boolean scarabTaken = false;
+    private boolean crateAnswered = false;
+    private boolean portraitObserved = false;
+
+    public static boolean enter(Scanner scanner, Player player) {
+        MuseumCorridor corridor = new MuseumCorridor();
+        return corridor.start(scanner, player);
+    }
+
+    private boolean start(Scanner scanner, Player player) {
         boolean inCorridor = true;
 
         while (inCorridor) {
             System.out.println();
 
-            // Dynamic corridor atmosphere based on current state
             if (scarabTaken) {
                 TextEffects.typeLine(
                         "As you step into the corridor, something inside your satchel gives a faint metallic click."
@@ -83,9 +85,15 @@ public class MuseumCorridor {
             int choice = LocationUI.getChoice(scanner, 4);
 
             switch (choice) {
-                case 1 -> EgyptianGallery.enter(scanner, player, scarabTaken);
-                case 2 -> HallOfPaintings.enter(scanner, player, portraitObserved);
-                case 3 -> ArtifactStorage.enter(scanner, player, crateAnswered);
+                case 1 -> scarabTaken =
+                        EgyptianGallery.enter(scanner, player, scarabTaken);
+
+                case 2 -> portraitObserved =
+                        HallOfPaintings.enter(scanner, player, portraitObserved);
+
+                case 3 -> crateAnswered =
+                        ArtifactStorage.enter(scanner, player, crateAnswered);
+
                 case 4 -> {
                     TextEffects.typeLine(
                             "You turn back toward the iron doors of the Entrance Hall..."

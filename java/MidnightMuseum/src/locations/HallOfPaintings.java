@@ -8,21 +8,15 @@ import java.util.Scanner;
 
 public class HallOfPaintings {
 
+    private boolean portraitObserved = false;
     private boolean lookedBehindCurtain = false;
     private int portraitRevisits = 0;
 
-    /**
-     * Entry method called from MuseumCorridor or Museum manager.
-     */
     public static boolean enter(Scanner scanner, Player player, boolean corridorPortraitObserved) {
         HallOfPaintings hall = new HallOfPaintings();
-        hall.lookedBehindCurtain = corridorPortraitObserved; // Sync persistent state
+        hall.portraitObserved = corridorPortraitObserved;
         hall.start(scanner, player);
-        return hall.lookedBehindCurtain;
-    }
-
-    public boolean isLookedBehindCurtain() {
-        return lookedBehindCurtain;
+        return hall.portraitObserved;
     }
 
     public void start(Scanner scanner, Player player) {
@@ -87,10 +81,11 @@ public class HallOfPaintings {
     }
 
     private void examinePortrait() {
+        portraitObserved = true;
+        portraitRevisits++;
+
         TextEffects.typeLine("An imposing oil portrait of an 18th-century noblewoman.", TextEffects.NORMAL);
         TextEffects.pause(400);
-
-        portraitRevisits++;
 
         if (!lookedBehindCurtain) {
             if (portraitRevisits == 1) {
@@ -151,7 +146,7 @@ public class HallOfPaintings {
     private void lookBehindCurtain() {
         if (!lookedBehindCurtain) {
             lookedBehindCurtain = true;
-            portraitRevisits = 0; // Reset counter so post-curtain escalation sequence begins fresh
+            portraitRevisits = 0;
 
             TextEffects.typeLine("You reach out and pull back the heavy black velvet curtain.", TextEffects.NORMAL);
             TextEffects.pause(800);

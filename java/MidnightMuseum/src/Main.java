@@ -31,6 +31,8 @@ import java.util.Scanner;
  * Sprint 8.1 - Extracted LocationUI helper and normalized scene structure
  * Sprint 8.2 - MM-008.2 Persistent choices & escalating consequences across all wings
  * Sprint 8.3 - MM-008.3 Curator's Handbook & Anomaly Protocols integration
+ * Sprint 9.0 - MM-009 Architectural refactoring & spatial expansion hub
+ * Sprint 9.1 - MM-009.1 The Museum Corridor & reactive spatial atmosphere
  */
 
 public class Main {
