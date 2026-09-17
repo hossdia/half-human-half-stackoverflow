@@ -13,6 +13,20 @@ public class ArtifactStorage {
     private int crateRevisits = 0;
     private int rowSevenVisits = 0;
 
+    /**
+     * Entry method called from MuseumCorridor or Museum manager.
+     */
+    public static boolean enter(Scanner scanner, Player player, boolean corridorKnockedBack) {
+        ArtifactStorage storage = new ArtifactStorage();
+        storage.knockedBack = corridorKnockedBack; // Sync persistent state
+        storage.start(scanner, player);
+        return storage.knockedBack;
+    }
+
+    public boolean isKnockedBack() {
+        return knockedBack;
+    }
+
     public void start(Scanner scanner, Player player) {
         boolean inStorage = true;
 

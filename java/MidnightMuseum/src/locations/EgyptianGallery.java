@@ -11,6 +11,20 @@ public class EgyptianGallery {
     private boolean scarabTaken = false;
     private int sarcophagusRevisits = 0;
 
+    /**
+     * Entry method called from MuseumCorridor or Museum manager.
+     */
+    public static boolean enter(Scanner scanner, Player player, boolean corridorScarabTaken) {
+        EgyptianGallery gallery = new EgyptianGallery();
+        gallery.scarabTaken = corridorScarabTaken; // Sync persistent state
+        gallery.start(scanner, player);
+        return gallery.scarabTaken;
+    }
+
+    public boolean isScarabTaken() {
+        return scarabTaken;
+    }
+
     public void start(Scanner scanner, Player player) {
         boolean inGallery = true;
 

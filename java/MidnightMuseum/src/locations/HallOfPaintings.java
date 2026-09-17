@@ -11,6 +11,20 @@ public class HallOfPaintings {
     private boolean lookedBehindCurtain = false;
     private int portraitRevisits = 0;
 
+    /**
+     * Entry method called from MuseumCorridor or Museum manager.
+     */
+    public static boolean enter(Scanner scanner, Player player, boolean corridorPortraitObserved) {
+        HallOfPaintings hall = new HallOfPaintings();
+        hall.lookedBehindCurtain = corridorPortraitObserved; // Sync persistent state
+        hall.start(scanner, player);
+        return hall.lookedBehindCurtain;
+    }
+
+    public boolean isLookedBehindCurtain() {
+        return lookedBehindCurtain;
+    }
+
     public void start(Scanner scanner, Player player) {
         boolean inHall = true;
 
@@ -137,7 +151,7 @@ public class HallOfPaintings {
     private void lookBehindCurtain() {
         if (!lookedBehindCurtain) {
             lookedBehindCurtain = true;
-            portraitRevisits = 0; // Reset counter so the post-curtain escalation sequence begins fresh
+            portraitRevisits = 0; // Reset counter so post-curtain escalation sequence begins fresh
 
             TextEffects.typeLine("You reach out and pull back the heavy black velvet curtain.", TextEffects.NORMAL);
             TextEffects.pause(800);
