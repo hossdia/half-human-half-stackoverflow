@@ -32,7 +32,7 @@ public class EntranceHall {
         System.out.println("----------------------------------------");
         System.out.println("            ENTRANCE HALL");
         System.out.println("----------------------------------------");
-        System.out.println("1. Enter the Museum");
+        System.out.println("1. Enter the Museum Corridor");
         System.out.println("2. Read the Curator's Handbook");
         System.out.println("3. Examine Curator's Key");
         System.out.println("4. Exit");
@@ -44,13 +44,12 @@ public class EntranceHall {
             case 1 -> {
                 if (firstTimeEnteringMuseum) {
                     System.out.println("The brass key vibrates softly in your pocket.");
-                    System.out.println("The great iron doors unlock on their own with a heavy click...\n");
+                    System.out.println("The great iron doors unlock on their own with a heavy click, opening onto the main corridor...\n");
                     firstTimeEnteringMuseum = false;
                 } else {
-                    System.out.println("The museum welcomes its Curator.\n");
+                    System.out.println("You push open the iron doors and step back into the main corridor.\n");
                 }
-                Museum museum = new Museum();
-                museum.start(scanner, player);
+                MuseumCorridor.enter(scanner, player);
                 return true;
             }
             case 2 -> {

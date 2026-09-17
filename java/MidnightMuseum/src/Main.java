@@ -11,28 +11,29 @@ import java.util.Scanner;
  * Version History
  * ----------------------------
  * Sprint 0   - Project initialized
- * Sprint 1   - MM-001 Curator introduction
- * Sprint 2   - MM-002 Entrance Hall menu
+ * Sprint 1   - Curator introduction
+ * Sprint 2   - Entrance Hall menu
  * Sprint 2.1 - Extracted EntranceHall object
- * Sprint 3   - MM-003 Museum Wing Selection
- * Sprint 4   - MM-004 Create the Player object
- * Sprint 5   - MM-005 The First Real Gallery
+ * Sprint 3   - Museum Wing Selection
+ * Sprint 4   - Create the Player object
+ * Sprint 5   - The First Real Gallery
  * Sprint 5.1 - Extract location classes
  * Sprint 5.2 - Refine narrative pacing
- * Sprint 6   - MM-006 Interactive Artifact & Persistent Choices
- * Sprint 7   - MM-007 Curator's Induction & First Item
+ * Sprint 6   - Interactive Artifact & Persistent Choices
+ * Sprint 7   - Curator's Induction & First Item
  * Sprint 7.1 - Refined Crate #042 text pacing
  * Sprint 7.2 - Dynamic post-knock revisit states
  * Sprint 7.3 - Psychological escalation on 4th knock callback
  * Sprint 7.4 - Text effects & cinematic presentation layer
  * Sprint 7.5 - Cleaned up TextEffects helpers (blankLine, typeLine)
  * Sprint 7.6 - Atmospheric pacing & stateful escalation across all wings
- * Sprint 8   - MM-008 The Fourth Knock & Crate #043 Discovery
+ * Sprint 8   - The Fourth Knock & Crate #043 Discovery
  * Sprint 8.1 - Extracted LocationUI helper and normalized scene structure
- * Sprint 8.2 - MM-008.2 Persistent choices & escalating consequences across all wings
- * Sprint 8.3 - MM-008.3 Curator's Handbook & Anomaly Protocols integration
- * Sprint 9.0 - MM-009 Architectural refactoring & spatial expansion hub
- * Sprint 9.1 - MM-009.1 The Museum Corridor & reactive spatial atmosphere
+ * Sprint 8.2 - Persistent choices & escalating consequences across all wings
+ * Sprint 8.3 - Curator's Handbook & Anomaly Protocols integration
+ * Sprint 9.0 - Architectural refactoring & spatial expansion hub
+ * Sprint 9.1 - The Museum Corridor & reactive spatial atmosphere
+ * Sprint 9.2 - Museum Layout Through Prose
  */
 
 public class Main {
