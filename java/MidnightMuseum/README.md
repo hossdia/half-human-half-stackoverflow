@@ -72,6 +72,7 @@ src/
 │   ├── EgyptianGallery.java
 │   ├── HallOfPaintings.java
 │   ├── ArtifactStorage.java
+│   ├── MuseumCorridor.java
 │   └── ...
 │
 └── utils/
